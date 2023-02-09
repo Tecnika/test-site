@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
 const NewsContent = () => {
-    const data = useStaticQuery(graphql`
+    const data_news = useStaticQuery(graphql`
     query ($glob: String = "*") {
       allMdx(filter: {frontmatter: {title: {glob: $glob}}}) {
         nodes {
@@ -17,7 +17,7 @@ const NewsContent = () => {
     }
   `)
     return (
-      data.allMdx.nodes
+      data_news.allMdx.nodes
     )
 }
 
