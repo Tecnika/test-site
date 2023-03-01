@@ -2,22 +2,26 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const PostsContent = () => {
     const data_post = useStaticQuery(graphql`
-    query ($glob: String = "*") {
-      allMdx(filter: {frontmatter: {header: {glob: $glob}}}) {
-        nodes {
-          frontmatter {
-            header
-            slug
-            author   
+    query {
+      allMdx(filter: {fields: {source: {eq: "blog"}}}) {
+        edges {
+          node {
+            fields {
+              source
+            }
+            frontmatter {
+              author
+              slug
+              header
+            }
+            excerpt
           }
-          id
-          excerpt
         }
       }
     }
   `)
     return (
-      data_post.allMdx.nodes
+      data_post.allMdx.edges
     )
 }
 

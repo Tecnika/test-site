@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../component/layout'
+import Layout from '../component/layout'
 
 const OneNewsPg = ({ data, children }) => {
 
@@ -8,9 +8,9 @@ const OneNewsPg = ({ data, children }) => {
     <Layout>
       <div className='column'>
         <img src="/images/cats_banner.jpg" alt='banner'/>
-        <h>{data.mdx.frontmatter.title}</h>
+        <h1>{data.mdx.frontmatter.title}</h1>
         <p className="author">{data.mdx.frontmatter.author}</p>
-        {children}
+       <p className='pre-wrap'> {data.mdx.body}</p>
       </div>
 
     </Layout>
@@ -29,6 +29,7 @@ query ($id: String) {
         slug
         title
       }
+      body
     }
   }
 `

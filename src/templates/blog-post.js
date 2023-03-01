@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../component/layout'
-import { StaticImage } from 'gatsby-plugin-image'
+import Layout from '../component/layout'
 
 const OnePostPg = ({ data, children }) => {
     return (
@@ -9,7 +8,7 @@ const OnePostPg = ({ data, children }) => {
             <div className='row'>
                 <img className='imgnews' src='/images/catnews.jpg'></img>
                 <div className='column'>
-                    <h>{data.mdx.frontmatter.header}</h>
+                    <h1>{data.mdx.frontmatter.header}</h1>
                     <p className="author">{data.mdx.frontmatter.author}</p>
                     {children}
                 </div>

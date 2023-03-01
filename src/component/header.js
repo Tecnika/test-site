@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-import '../css/css.css'
+
 
 export default function Header({ children, n_class, childClass }) {
     return (

@@ -2,22 +2,26 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const NewsContent = () => {
     const data_news = useStaticQuery(graphql`
-    query ($glob: String = "*") {
-      allMdx(filter: {frontmatter: {title: {glob: $glob}}}) {
-        nodes {
-          frontmatter {
-            title
-            author
-            slug
+    query {
+      allMdx(filter: {fields: {source: {eq: "news"}}}) {
+        edges {
+          node {
+            fields {
+              source
+            }
+            frontmatter {
+              author
+              slug
+              title
+            }
+            excerpt
           }
-          id
-          excerpt
         }
       }
     }
   `)
     return (
-      data_news.allMdx.nodes
+      data_news.allMdx.edges
     )
 }
 

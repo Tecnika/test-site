@@ -6,12 +6,14 @@ import PostsContent from "../hooks/posts"
 const BlogPage = () => {
   return (
     <Layout>
-     {
-        PostsContent().map((node, index) => (
-          <PostTemp key={node.id} node={node}> 
+      {
+        PostsContent().map((node) => {
+          // console.log(node);
+          return <PostTemp key={node.id} node={node}>
           </PostTemp>
-        ))
+        })
       }
+    
     </Layout>
   )
 }

@@ -33,6 +33,7 @@ a {
 
 p {
     font-size: 0.8em;
+    font-weight: 100;
 }
 
 .title {
@@ -100,4 +101,8 @@ article:hover{
     height: auto;
     
   object-fit: contain;
+}
+
+.pre-wrap{
+    white-space: pre-wrap;
 }
