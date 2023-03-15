@@ -31,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 path: `/blog/${edge.node.frontmatter.slug}`,
                 component: blogPostTemplate,
                 context: {
-                    slug: edge.node.frontmatter.slug
+                  id: edge.node.id
                 }
             })
         })
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 path: `/news/${edge.node.frontmatter.slug}`,
                 component: newsPostTemplate,
                 context: {
-                    slug: edge.node.frontmatter.slug
+                    id: edge.node.id
                 }
             })
         })

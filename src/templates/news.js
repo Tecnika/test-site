@@ -19,11 +19,12 @@ const OneNewsPg = ({ data, children }) => {
 
 export default OneNewsPg
 
-export const Head = () => <title>Blog Page</title>
+export const Head = ({data}) => <title>{data.mdx.frontmatter.title}</title>
 
 export const query = graphql`
 query ($id: String) {
   mdx(id: {eq: $id}) {
+    body
       frontmatter {
         author
         slug

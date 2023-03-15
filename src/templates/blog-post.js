@@ -10,7 +10,7 @@ const OnePostPg = ({ data, children }) => {
                 <div className='column'>
                     <h1>{data.mdx.frontmatter.header}</h1>
                     <p className="author">{data.mdx.frontmatter.author}</p>
-                    {children}
+                    <p className='pre-wrap'>{data.mdx.body}</p> 
                 </div>
             </div>
         </Layout>
@@ -19,11 +19,12 @@ const OnePostPg = ({ data, children }) => {
 
 export default OnePostPg
 
-export const Head = () => <title>Blog Page</title>
+export const Head = ({data}) => <title>{data.mdx.frontmatter.header}</title>
 
 export const query = graphql`
 query ($id: String) {
   mdx(id: {eq: $id}) {
+    body
       frontmatter {
         author
         slug
